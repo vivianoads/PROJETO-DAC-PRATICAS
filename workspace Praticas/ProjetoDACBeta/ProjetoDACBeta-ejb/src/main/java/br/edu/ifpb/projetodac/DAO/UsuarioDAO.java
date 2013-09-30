@@ -5,8 +5,7 @@
 package br.edu.ifpb.projetodac.DAO;
 
 import br.edu.ifpb.projetodac.entidades.Usuario;
-import javax.ejb.Stateless;
-import javax.ejb.LocalBean;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,8 +14,6 @@ import javax.persistence.Query;
  *
  * @author Luciano
  */
-@Stateless
-@LocalBean
 public class UsuarioDAO {
     
     @PersistenceContext(unitName="ProjetoDACBeta-PU")
@@ -28,16 +25,22 @@ public class UsuarioDAO {
     
     public Usuario getUsuario(int numeroMatricula){
         Query query = entityManager.createNamedQuery("Usuario.findByMatricula");
-        query.setParameter("numeromatricula", numeroMatricula);
+        query.setParameter("matricula", numeroMatricula);
         return (Usuario) query.getSingleResult();
         
     }
-
-//        @PersistenceContext(unitName = "LOJAJSF-PU")
-//    private EntityManager entityManager;
-//
-//    public void criarPedido(Pedido pedido) {
-//        entityManager.persist(pedido);
-//    }
-
+    public List<Usuario> listaDeUsuarios(){
+        Query query = entityManager.createNamedQuery("Usuario.findAll");
+        return query.getResultList();
+    }
+    public void updateUsuario(Usuario u){
+        if(entityManager.find(Usuario.class, u.getId())!=null){
+        entityManager.merge(u);
+        }
+    }
+    public void removeUsuario(Usuario u){
+        if(entityManager.find(Usuario.class, u.getId())!=null){
+        entityManager.remove(u);
+        }
+    }
 }

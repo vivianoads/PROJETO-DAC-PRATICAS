@@ -17,16 +17,19 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+
 /**
  *
  * @author Luciano
  */
+
 @Entity
 @Inheritance(strategy= InheritanceType.JOINED)
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"numeroMatricula","nome"})})
 @NamedQueries({
-    @NamedQuery(name="Usuario.findByMatricula", query ="select u from Usuario u where u.numeromatricula =:matricula"),
-    @NamedQuery(name="Usuario.findAll", query ="select u from Usuario u ")    
+    @NamedQuery(name="Usuario.findByMatricula", query ="select u from Usuario u where u.numeroMatricula =:matricula"),
+    @NamedQuery(name="Usuario.findAll", query ="select u from Usuario u "),
+    @NamedQuery(name="Usuario.update", query="update Usuario set numeroMatricula=:matricula, nome=:nome, telefone=:telefone, vinculo=:vinculo, email=:email")
+   
 })
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -37,17 +40,17 @@ public class Usuario implements Serializable {
     @OneToOne
     private Login login;
     
-    private Integer numeroMatricula;
+    private int numeroMatricula;
     private String nome;
     private String telefone;
     private String vinculo;
     private String email;
 
-    public Integer getNumeroMatricula() {
+    public int getNumeroMatricula() {
         return numeroMatricula;
     }
 
-    public void setNumeroMatricula(Integer numeroMatricula) {
+    public void setNumeroMatricula(int numeroMatricula) {
         this.numeroMatricula = numeroMatricula;
     }
 
