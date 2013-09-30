@@ -99,9 +99,15 @@
             <version>3.15.0-GA</version>
         </dependency>
         <dependency>
+            <groupId>jboss</groupId>
+            <artifactId>jboss-ejb3x</artifactId>
+            <version>4.2.2.GA</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>6.0</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 

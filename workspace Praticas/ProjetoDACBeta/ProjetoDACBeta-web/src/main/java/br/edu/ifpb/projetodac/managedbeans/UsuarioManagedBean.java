@@ -16,16 +16,23 @@ import javax.faces.bean.RequestScoped;
  *
  * @author Luciano
  */
-@ManagedBean(name="usuarioMB")
+@ManagedBean(name="userMB")
 @RequestScoped
 public class UsuarioManagedBean implements Serializable{
     
-    @EJB
-    private IUsuarioLocal usuarioSB;
+    private int numeroMatricula;
+    private String nome;
+    private String telefone;
+    private String vinculo;
+    private String email;
+    
+//    @EJB(beanName="usuariosessionBean")
+//    private IUsuarioLocal usuarioSB;
     
     private Usuario usuario = new Usuario();
-       
+    
     public UsuarioManagedBean() {
+        super();
     }
 
     public Usuario getUsuario() {
@@ -37,18 +44,62 @@ public class UsuarioManagedBean implements Serializable{
     }
         
     public void addUsuario(){
-       usuarioSB.gravaUsario(usuario);
+//       usuarioSB.gravaUsario(usuario);
     }
     public Usuario getUsuario(int numeroMatricula){
-       return usuarioSB.getUsuario(numeroMatricula);
+//       return usuarioSB.getUsuario(numeroMatricula);
+        return null;
     }
     public List<Usuario> listaDeUsuarios(){
-        return usuarioSB.listaDeUsuarios();
+//        return usuarioSB.listaDeUsuarios();
+        return null;
     }
     public void updateUsuario(Usuario u){
-        usuarioSB.atualizaUsuario(u);
+//        usuarioSB.atualizaUsuario(u);
     }
     public void removeUsuario(Usuario u){
-        usuarioSB.removeUsuario(u);
+//        usuarioSB.removeUsuario(u);
     }
+
+    public int getNumeroMatricula() {
+        return numeroMatricula;
+    }
+
+    public void setNumeroMatricula(int numeroMatricula) {
+        this.numeroMatricula = numeroMatricula;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getVinculo() {
+        return vinculo;
+    }
+
+    public void setVinculo(String vinculo) {
+        this.vinculo = vinculo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
 }
