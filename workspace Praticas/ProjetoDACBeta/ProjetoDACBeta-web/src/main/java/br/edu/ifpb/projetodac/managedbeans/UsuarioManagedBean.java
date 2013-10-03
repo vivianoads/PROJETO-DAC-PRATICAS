@@ -26,8 +26,8 @@ public class UsuarioManagedBean implements Serializable{
     private String vinculo;
     private String email;
     
-//    @EJB(beanName="usuariosessionBean")
-//    private IUsuarioLocal usuarioSB;
+    @EJB
+    private IUsuarioLocal usuarioSB;
     
     private Usuario usuario = new Usuario();
     
@@ -44,21 +44,19 @@ public class UsuarioManagedBean implements Serializable{
     }
         
     public void addUsuario(){
-//       usuarioSB.gravaUsario(usuario);
+       usuarioSB.gravaUsario(usuario);
     }
     public Usuario getUsuario(int numeroMatricula){
-//       return usuarioSB.getUsuario(numeroMatricula);
-        return null;
+       return usuarioSB.getUsuario(numeroMatricula);
     }
     public List<Usuario> listaDeUsuarios(){
-//        return usuarioSB.listaDeUsuarios();
-        return null;
+        return usuarioSB.listaDeUsuarios();
     }
     public void updateUsuario(Usuario u){
-//        usuarioSB.atualizaUsuario(u);
+        usuarioSB.atualizaUsuario(u);
     }
     public void removeUsuario(Usuario u){
-//        usuarioSB.removeUsuario(u);
+        usuarioSB.removeUsuario(u);
     }
 
     public int getNumeroMatricula() {

@@ -10,15 +10,15 @@
         <h:form>
         <h:panelGrid columns="2">
             <h:outputText value="Numero Matricula"/>
-            <h:inputText value="#{userMB.numeroMatricula}"/>
+            <h:inputText value="#{userMB.usuario.numeroMatricula}"/>
             <h:outputText value="Nome"/>
-            <h:inputText value="#{userMB.nome}"/>
+            <h:inputText value="#{userMB.usuario.nome}"/>
             <h:outputText value="Telefon"/>
-            <h:inputText value="#{userMB.telefone}"/>
+            <h:inputText value="#{userMB.usuario.telefone}"/>
             <h:outputText value="Vinculo"/>
-            <h:inputText value="#{userMB.vinculo}"/>
+            <h:inputText value="#{userMB.usuario.vinculo}"/>
             <h:outputText value="Email"/>
-            <h:inputText value="#{userMB.email}"/>
+            <h:inputText value="#{userMB.usuario.email}"/>
             <h:commandButton value="Salvar" action="#{userMB.addUsuario()}"/>
         </h:panelGrid>
         </h:form>

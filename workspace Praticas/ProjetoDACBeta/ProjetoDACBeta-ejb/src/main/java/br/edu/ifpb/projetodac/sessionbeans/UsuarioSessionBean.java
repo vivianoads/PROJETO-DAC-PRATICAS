@@ -7,6 +7,7 @@ package br.edu.ifpb.projetodac.sessionbeans;
 import br.edu.ifpb.projetodac.DAO.UsuarioDAO;
 import br.edu.ifpb.projetodac.entidades.Usuario;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
@@ -18,7 +19,8 @@ import javax.ejb.Stateless;
 @Local(IUsuarioLocal.class)
 public class UsuarioSessionBean implements IUsuarioLocal{
 
-    private UsuarioDAO usuarioDAO = new UsuarioDAO();
+    @EJB
+    private UsuarioDAO usuarioDAO;
 
     @Override
     public void gravaUsario(Usuario usuario) {

@@ -6,6 +6,9 @@ package br.edu.ifpb.projetodac.DAO;
 
 import br.edu.ifpb.projetodac.entidades.Usuario;
 import java.util.List;
+import javax.ejb.Local;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -14,6 +17,8 @@ import javax.persistence.Query;
  *
  * @author Luciano
  */
+@Stateless
+@LocalBean
 public class UsuarioDAO {
     
     @PersistenceContext(unitName="ProjetoDACBeta-PU")
@@ -21,6 +26,7 @@ public class UsuarioDAO {
     
     public void gravaUsuario(Usuario usuario){
         entityManager.persist(usuario);
+      
     }
     
     public Usuario getUsuario(int numeroMatricula){
